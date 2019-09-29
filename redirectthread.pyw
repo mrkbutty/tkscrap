@@ -1,11 +1,9 @@
 
-import Tkinter as Tk
+import tkinter as Tk
 import sys
 import threading
 
-root = Tk.Tk()
-text = Tk.Text(root)
-text.pack()
+
 
 exit_thread= False
 exit_success = False
@@ -34,14 +32,19 @@ def gen():
 
 def call_gen():
     for i in gen():
-        print i
+        print(i)
+
+
+root = Tk.Tk()
+text = Tk.Text(root)
+text.pack()
 
 exit_button = Tk.Button(root,text='Exit',command=stop_thread)
 exit_button.pack()
 
 sys.stdout = Std_redirector(text)
 
-print 2
+print(2)
 
 thread1 = threading.Thread(target=call_gen)
 thread1.start()

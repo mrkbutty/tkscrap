@@ -1,15 +1,17 @@
-#!/usr/bin/env python
+#!python
 # -*- coding: utf-8 -*-
 import sys
-import Tkinter as tk
-import tkMessageBox as tkmb
+import tkinter as tk
+#import tkMessageBox as tkmb
+import tkinter.messagebox as tkmb
 
-args = ', '.join(sys.argv)
-print 'Args', args
+pyexe=sys.executable+' '+sys.version.split()[0]
+args = '\n'.join(sys.argv)
+print('Args', pyexe+args)
 
 top = tk.Tk()
 def hello():
-   tkmb.showinfo("Args", args)
+   tkmb.showinfo("Args", pyexe+'\n'+args)
 
 B1 = tk.Button(top, text = "Get Args", command = hello)
 B1.pack()
